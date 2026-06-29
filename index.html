@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web制作ポートフォリオ</title>
+<style>
+body{font-family:sans-serif;max-width:800px;margin:60px auto;padding:0 24px;background:#f8f8f8;color:#222}
+h1{font-size:28px;margin-bottom:8px}
+p{color:#666;margin-bottom:48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;border-radius:8px;padding:28px 24px;text-decoration:none;color:#222;border:1px solid #e0e0e0;transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.card-label{font-size:11px;letter-spacing:.15em;color:#999;text-transform:uppercase;margin-bottom:10px}
+.card-title{font-size:18px;font-weight:600;margin-bottom:6px}
+.card-sub{font-size:13px;color:#888}
+</style>
+</head>
+<body>
+<h1>Web制作 ポートフォリオ</h1>
+<p>架空のクライアント向けに制作したサンプルサイトです。</p>
+<div class="grid">
+  <a class="card" href="portfolio_01_restaurant.html">
+    <p class="card-label">飲食店</p>
+    <p class="card-title">Trattoria Noci</p>
+    <p class="card-sub">イタリアンレストラン向け高級感のあるデザイン</p>
+  </a>
+  <a class="card" href="portfolio_02_salon.html">
+    <p class="card-label">美容院</p>
+    <p class="card-title">MIST HAIR SALON</p>
+    <p class="card-sub">ヘアサロン向けナチュラルモダンデザイン</p>
+  </a>
+  <a class="card" href="portfolio_03_tax.html">
+    <p class="card-label">士業・コンサル</p>
+    <p class="card-title">橋本税理士事務所</p>
+    <p class="card-sub">税理士事務所向け信頼感重視デザイン</p>
+  </a>
+</div>
+</body>
+</html>
