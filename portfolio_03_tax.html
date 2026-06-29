@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>橋本税理士事務所 — 中小企業の経営パートナー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f2340;
+  --navy2:#1a3558;
+  --bg:#f7f8fa;
+  --white:#ffffff;
+  --gold:#c49a3c;
+  --gray:#8a96a3;
+  --light:#eef0f4;
+  --text:#2a3240;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.85;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--light);height:68px;display:flex;align-items:center;padding:0 48px;justify-content:space-between}
+.logo-block{display:flex;flex-direction:column;line-height:1.2}
+.logo-ja{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:500;color:var(--navy);letter-spacing:.12em}
+.logo-en{font-size:10px;letter-spacing:.2em;color:var(--gray);text-transform:uppercase}
+.nav-menu{display:flex;gap:32px;list-style:none}
+.nav-menu a{font-size:13px;color:var(--gray);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-menu a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:var(--white);font-size:13px;padding:10px 24px;text-decoration:none;letter-spacing:.06em;transition:background .2s}
+.nav-cta:hover{background:var(--navy2)}
+
+/* HERO */
+.hero{padding:160px 0 0;background:var(--white);position:relative;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:end}
+.hero-badge{display:inline-block;background:var(--light);border-left:3px solid var(--gold);padding:6px 16px;font-size:12px;letter-spacing:.1em;color:var(--gold);margin-bottom:32px}
+.hero-title{font-family:'Shippori Mincho',serif;font-size:clamp(36px,4.5vw,58px);font-weight:500;line-height:1.5;color:var(--navy);margin-bottom:28px}
+.hero-sub{font-size:15px;color:var(--gray);line-height:2;margin-bottom:48px;max-width:480px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--navy);color:var(--white);font-size:14px;padding:14px 36px;text-decoration:none;letter-spacing:.08em;transition:background .2s;border:2px solid var(--navy)}
+.btn-primary:hover{background:var(--navy2);border-color:var(--navy2)}
+.btn-secondary{background:transparent;color:var(--navy);font-size:14px;padding:14px 36px;text-decoration:none;letter-spacing:.08em;border:2px solid var(--navy);transition:background .2s}
+.btn-secondary:hover{background:var(--light)}
+.hero-card{background:var(--navy);padding:48px 40px;position:relative}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.hero-card-title{font-size:13px;letter-spacing:.15em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:32px}
+.hero-stat{margin-bottom:28px}
+.hero-stat-num{font-family:'Shippori Mincho',serif;font-size:42px;color:var(--white);font-weight:500;line-height:1;margin-bottom:6px}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.4);letter-spacing:.08em}
+.hero-bar{height:1px;background:rgba(255,255,255,.1);margin:24px 0}
+.hero-tel{color:rgba(255,255,255,.9);font-size:13px;line-height:2}
+.hero-tel strong{font-family:'Shippori Mincho',serif;font-size:24px;display:block;letter-spacing:.05em;margin-top:4px}
+.hero-bottom{background:var(--light);margin-top:80px;padding:24px 48px}
+.hero-bottom-inner{max-width:1100px;margin:0 auto;display:flex;gap:48px;align-items:center;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--gray)}
+.trust-icon{width:32px;height:32px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trust-icon span{color:var(--white);font-size:14px}
+
+/* SERVICES */
+.services{padding:120px 48px;background:var(--bg)}
+.services-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:block}
+.section-title{font-family:'Shippori Mincho',serif;font-size:clamp(28px,4vw,42px);font-weight:500;color:var(--navy);margin-bottom:64px;line-height:1.4}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--light)}
+.service-box{background:var(--white);padding:48px 36px;transition:background .2s}
+.service-box:hover{background:var(--navy);color:var(--white)}
+.service-box:hover .service-num{color:rgba(255,255,255,.15)}
+.service-box:hover .service-name{color:var(--white)}
+.service-box:hover .service-text{color:rgba(255,255,255,.6)}
+.service-box:hover .service-fee{color:var(--gold)}
+.service-num{font-family:'Shippori Mincho',serif;font-size:56px;color:var(--light);font-weight:500;line-height:1;margin-bottom:16px;transition:color .2s}
+.service-name{font-family:'Shippori Mincho',serif;font-size:20px;color:var(--navy);font-weight:500;margin-bottom:16px;transition:color .2s}
+.service-text{font-size:13px;color:var(--gray);line-height:2;margin-bottom:24px;transition:color .2s}
+.service-fee{font-size:13px;color:var(--gold);transition:color .2s}
+
+/* FLOW */
+.flow{padding:120px 48px;background:var(--white)}
+.flow-inner{max-width:1100px;margin:0 auto}
+.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:64px}
+.flow-steps::before{content:'';position:absolute;top:24px;left:5%;right:5%;height:1px;background:var(--light)}
+.flow-step{text-align:center;padding:0 16px}
+.flow-dot{width:48px;height:48px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Shippori Mincho',serif;font-size:18px;color:var(--white);font-weight:500;position:relative;z-index:1}
+.flow-step-title{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:500;color:var(--navy);margin-bottom:12px}
+.flow-step-text{font-size:12px;color:var(--gray);line-height:1.9}
+
+/* FAQ */
+.faq{padding:120px 48px;background:var(--bg)}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-list{margin-top:64px;display:grid;gap:2px}
+.faq-item{background:var(--white)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:24px 28px;cursor:pointer;gap:16px}
+.faq-q-text{font-family:'Shippori Mincho',serif;font-size:16px;font-weight:500;color:var(--navy);line-height:1.5}
+.faq-toggle{width:24px;height:24px;flex-shrink:0;border:1px solid var(--light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--gray);transition:all .2s;user-select:none}
+.faq-item.open .faq-toggle{background:var(--navy);border-color:var(--navy);color:var(--white);transform:rotate(45deg)}
+.faq-a{display:none;padding:0 28px 24px;font-size:13px;color:var(--gray);line-height:2}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta{background:var(--navy);padding:100px 48px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.cta-label{font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:24px;display:block}
+.cta-title{font-family:'Shippori Mincho',serif;font-size:clamp(28px,4vw,44px);font-weight:500;color:var(--white);margin-bottom:20px;line-height:1.5}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:48px;line-height:2}
+.cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-white{background:var(--white);color:var(--navy);font-size:14px;padding:14px 40px;text-decoration:none;letter-spacing:.08em;transition:opacity .2s;font-family:'Noto Sans JP',sans-serif}
+.btn-white:hover{opacity:.9}
+.btn-outline-white{background:transparent;color:var(--white);font-size:14px;padding:14px 40px;text-decoration:none;letter-spacing:.08em;border:1px solid rgba(255,255,255,.3);transition:border-color .2s;font-family:'Noto Sans JP',sans-serif}
+.btn-outline-white:hover{border-color:var(--white)}
+
+/* FOOTER */
+footer{background:#0a1a2e;padding:64px 48px 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px;max-width:1100px;margin:0 auto 48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-logo-ja{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--white);letter-spacing:.12em;display:block;margin-bottom:4px}
+.footer-logo-en{font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.3);text-transform:uppercase;display:block;margin-bottom:20px}
+.footer-desc{font-size:12px;color:rgba(255,255,255,.35);line-height:2}
+.footer-col-title{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:20px}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:12px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:.05em}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-menu{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:0 20px}
+  .hero-card{margin-top:40px}
+  .hero-bottom{padding:20px}
+  .services,.flow,.faq{padding:80px 20px}
+  .services-grid{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr 1fr;gap:40px}
+  .flow-steps::before{display:none}
+  .cta{padding:80px 20px}
+  footer{padding:48px 20px 24px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px}
+}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-block">
+    <span class="logo-ja">橋本税理士事務所</span>
+    <span class="logo-en">Hashimoto Tax Office</span>
+  </div>
+  <ul class="nav-menu">
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#flow">ご依頼の流れ</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+    <li><a href="#contact">事務所案内</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">無料相談を予約する</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-badge reveal">創業支援 ／ 記帳代行 ／ 相続税申告</span>
+      <h1 class="hero-title reveal">数字に追われる毎日から、<br>数字を武器にする経営へ。</h1>
+      <p class="hero-sub reveal">東京・新宿を拠点に、中小企業・個人事業主の税務・会計を支援して20年。確定申告から資金調達まで、ワンストップでサポートします。</p>
+      <div class="hero-btns reveal">
+        <a href="#contact" class="btn-primary">無料相談を予約する</a>
+        <a href="#services" class="btn-secondary">サービスを見る</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <p class="hero-card-title">実績</p>
+      <div class="hero-stat">
+        <p class="hero-stat-num">850<span style="font-size:24px">社+</span></p>
+        <p class="hero-stat-label">顧問先企業数（累計）</p>
+      </div>
+      <div class="hero-bar"></div>
+      <div class="hero-stat">
+        <p class="hero-stat-num">98<span style="font-size:24px">%</span></p>
+        <p class="hero-stat-label">顧問契約 継続率</p>
+      </div>
+      <div class="hero-bar"></div>
+      <div class="hero-tel">
+        受付時間 平日9:00〜18:00
+        <strong>03-XXXX-XXXX</strong>
+        メールは24時間受付中
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-bottom-inner">
+      <div class="trust-item">
+        <div class="trust-icon"><span>★</span></div>
+        Google評価 4.8（口コミ92件）
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><span>✓</span></div>
+        税理士法人・司法書士提携あり
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><span>✓</span></div>
+        初回相談60分 無料
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><span>✓</span></div>
+        freee / マネーフォワード 対応
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <span class="section-label reveal">Services</span>
+    <h2 class="section-title reveal">主なサービス</h2>
+    <div class="services-grid">
+      <div class="service-box reveal">
+        <p class="service-num">01</p>
+        <h3 class="service-name">記帳代行・顧問契約</h3>
+        <p class="service-text">月次の帳簿作成から試算表の報告まで一括対応。クラウド会計ソフトを活用し、リアルタイムで経営状況を把握できる環境を構築します。</p>
+        <p class="service-fee">月額 ¥15,000〜</p>
+      </div>
+      <div class="service-box reveal">
+        <p class="service-num">02</p>
+        <h3 class="service-name">確定申告・法人税申告</h3>
+        <p class="service-text">個人・法人の税務申告を代行。節税の提案も含め、支払いすぎている税金がないか毎年チェックします。期限直前のご依頼も歓迎です。</p>
+        <p class="service-fee">¥50,000〜</p>
+      </div>
+      <div class="service-box reveal">
+        <p class="service-num">03</p>
+        <h3 class="service-name">創業・開業支援</h3>
+        <p class="service-text">法人設立の手続きから、創業融資のサポートまで。日本政策金融公庫の融資支援実績多数。事業計画書の作成もお手伝いします。</p>
+        <p class="service-fee">¥30,000〜</p>
+      </div>
+      <div class="service-box reveal">
+        <p class="service-num">04</p>
+        <h3 class="service-name">相続税・贈与税申告</h3>
+        <p class="service-text">相続税の申告から、事前の節税対策まで対応。土地の評価や各種特例の適用を最大限活用し、ご家族の負担を最小化します。</p>
+        <p class="service-fee">遺産総額の0.5%〜</p>
+      </div>
+      <div class="service-box reveal">
+        <p class="service-num">05</p>
+        <h3 class="service-name">給与計算・年末調整</h3>
+        <p class="service-text">毎月の給与計算、社会保険手続き、年末調整まで一括代行。従業員10名以下の中小企業を中心に対応しています。</p>
+        <p class="service-fee">月額 ¥8,000〜</p>
+      </div>
+      <div class="service-box reveal">
+        <p class="service-num">06</p>
+        <h3 class="service-name">経営コンサルティング</h3>
+        <p class="service-text">試算表の読み方から、キャッシュフローの改善策まで。月次面談で数字をもとに経営課題を一緒に整理します。</p>
+        <p class="service-fee">顧問契約に含む</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow" id="flow">
+  <div class="flow-inner">
+    <span class="section-label reveal">Flow</span>
+    <h2 class="section-title reveal">ご依頼の流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="flow-dot">1</div>
+        <h3 class="flow-step-title">無料相談</h3>
+        <p class="flow-step-text">お電話またはWebフォームよりご予約。Zoomまたはお電話で60分間、現状の課題を整理します。</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="flow-dot">2</div>
+        <h3 class="flow-step-title">お見積もり</h3>
+        <p class="flow-step-text">業務内容と報酬をご提示。明確な料金体系で、後から追加費用が発生することはありません。</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="flow-dot">3</div>
+        <h3 class="flow-step-title">ご契約</h3>
+        <p class="flow-step-text">電子契約にて締結。必要書類のご準備方法もご案内します。最短で翌日からサポート開始が可能です。</p>
+      </div>
+      <div class="flow-step reveal">
+        <div class="flow-dot">4</div>
+        <h3 class="flow-step-title">サポート開始</h3>
+        <p class="flow-step-text">担当者が決まり、定期的なコミュニケーションを開始。LINEやメールでの質問に随時対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <span class="section-label reveal">FAQ</span>
+    <h2 class="section-title reveal">よくある質問</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">今まで税理士に依頼したことがありませんが、大丈夫ですか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <p class="faq-a">はい、もちろんです。初めて税理士に依頼される方も多く、わかりやすい説明を心がけています。まず無料相談で現状を整理しますので、お気軽にご連絡ください。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">途中から依頼することはできますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <p class="faq-a">はい、期中からのご依頼も歓迎です。前任の税理士からの引き継ぎや、ご自身で帳簿をつけていた場合の引き継ぎにも対応しています。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">オンラインのみでも対応してもらえますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <p class="faq-a">はい、Zoom・電話・メール・LINEでのやり取りのみでも問題ありません。関東圏外の方や、忙しい経営者の方にも多くご利用いただいています。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">料金はどのくらいかかりますか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <p class="faq-a">事業規模や依頼内容によって異なります。顧問料の目安は月額15,000円〜で、確定申告や法人税申告は別途お見積もりとなります。まずは無料相談でご状況をお聞きしてから正式なご提案をいたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <span class="cta-label reveal">Contact</span>
+  <h2 class="cta-title reveal">まずは60分、<br>無料でご相談ください。</h2>
+  <p class="cta-sub reveal">税務のこと、資金のこと、創業のこと。<br>どんな些細な疑問でも、丁寧にお答えします。</p>
+  <div class="cta-btns reveal">
+    <a href="tel:03XXXXXXXX" class="btn-white">電話で相談する（無料）</a>
+    <a href="mailto:info@hashimoto-tax.jp" class="btn-outline-white">メールで問い合わせる</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo-ja">橋本税理士事務所</span>
+      <span class="footer-logo-en">Hashimoto Tax Office</span>
+      <p class="footer-desc">東京・新宿を拠点に、中小企業・個人事業主の税務・会計・経営をサポートしています。創業から相続まで、ワンストップで対応可能です。<br><br>〒160-0000 東京都新宿区XX-X-X ○○ビル 5F<br>TEL: 03-XXXX-XXXX（平日9:00〜18:00）</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">サービス</p>
+      <a href="#services">記帳代行・顧問契約</a>
+      <a href="#services">確定申告・法人税申告</a>
+      <a href="#services">創業・開業支援</a>
+      <a href="#services">相続税・贈与税申告</a>
+      <a href="#services">給与計算・年末調整</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">事務所情報</p>
+      <a href="#flow">ご依頼の流れ</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">無料相談予約</a>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 橋本税理士事務所 All Rights Reserved.</p>
+    <p class="footer-copy">税理士登録番号：第XXXXX号</p>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

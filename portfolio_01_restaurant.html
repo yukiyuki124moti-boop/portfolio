@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trattoria Noci — 代官山イタリアン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1612;
+  --cream:#f8f4ee;
+  --gold:#b8924a;
+  --stone:#8c8072;
+  --warm:#ede8df;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;line-height:1.8;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;mix-blend-mode:normal;background:transparent;transition:background .4s}
+nav.scrolled{background:rgba(248,244,238,.95);backdrop-filter:blur(8px)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.2em;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:.15em;color:var(--stone);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-reserve{font-size:12px;letter-spacing:.12em;color:var(--gold);border:1px solid var(--gold);padding:8px 20px;text-decoration:none;text-transform:uppercase;transition:all .2s}
+.nav-reserve:hover{background:var(--gold);color:var(--cream)}
+
+/* HERO */
+.hero{height:100vh;display:flex;align-items:flex-end;padding:0 48px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#2a1f14 0%,#1a1208 100%);z-index:0}
+.hero-texture{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(184,146,74,.12) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(184,146,74,.08) 0%,transparent 50%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:640px}
+.hero-eyebrow{font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:block}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,96px);line-height:1;color:var(--cream);font-weight:300;margin-bottom:8px}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:13px;letter-spacing:.1em;color:rgba(248,244,238,.5);margin-bottom:48px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:16px;font-size:13px;letter-spacing:.15em;color:var(--cream);text-decoration:none;text-transform:uppercase}
+.hero-cta::after{content:'';display:block;width:64px;height:1px;background:var(--gold);transition:width .3s}
+.hero-cta:hover::after{width:100px}
+.hero-scroll{position:absolute;right:48px;bottom:80px;z-index:2;writing-mode:vertical-rl;font-size:11px;letter-spacing:.2em;color:rgba(248,244,238,.4);text-transform:uppercase;display:flex;align-items:center;gap:16px}
+.hero-scroll::after{content:'';display:block;width:1px;height:64px;background:rgba(248,244,238,.2)}
+
+/* CONCEPT */
+.concept{display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
+.concept-image{background:#2a1f14;position:relative;overflow:hidden;min-height:480px}
+.concept-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2a1f14 0%,#3d2d1a 50%,#2a1f14 100%)}
+.concept-img-inner{text-align:center;color:rgba(248,244,238,.15)}
+.concept-img-inner p{font-family:'Cormorant Garamond',serif;font-size:48px;line-height:1}
+.concept-body{background:var(--warm);padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.section-label{font-size:10px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:32px;display:block}
+.concept-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.2;margin-bottom:32px;color:var(--ink)}
+.concept-text{font-size:14px;color:var(--stone);line-height:2;margin-bottom:40px}
+.divider{width:40px;height:1px;background:var(--gold);margin-bottom:32px}
+
+/* MENU */
+.menu{padding:120px 48px;background:var(--cream)}
+.menu-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:80px}
+.menu-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:var(--ink)}
+.menu-note{font-size:12px;color:var(--stone);letter-spacing:.05em;max-width:200px;text-align:right;line-height:1.8}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(140,128,114,.15)}
+.menu-item{background:var(--cream);padding:40px 32px;transition:background .25s}
+.menu-item:hover{background:var(--warm)}
+.menu-cat{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:block}
+.menu-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:8px;line-height:1.3}
+.menu-desc{font-size:12px;color:var(--stone);line-height:1.9;margin-bottom:20px}
+.menu-price{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold)}
+
+/* RESERVATION */
+.reservation{background:var(--ink);padding:120px 48px;text-align:center}
+.reservation .section-label{color:var(--gold)}
+.reservation-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:var(--cream);margin-bottom:24px;line-height:1.2}
+.reservation-sub{font-size:13px;color:rgba(248,244,238,.5);margin-bottom:64px;line-height:2}
+.reservation-form{max-width:480px;margin:0 auto;display:grid;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-input{background:transparent;border:none;border-bottom:1px solid rgba(248,244,238,.2);padding:14px 0;font-size:13px;color:var(--cream);font-family:'Noto Sans JP',sans-serif;font-weight:300;outline:none;transition:border-color .2s;width:100%}
+.form-input::placeholder{color:rgba(248,244,238,.3);font-size:12px;letter-spacing:.05em}
+.form-input:focus{border-bottom-color:var(--gold)}
+.form-submit{margin-top:32px;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:16px 48px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;font-family:'Noto Sans JP',sans-serif;transition:all .25s}
+.form-submit:hover{background:var(--gold);color:var(--ink)}
+
+/* ACCESS */
+.access{display:grid;grid-template-columns:1fr 1fr}
+.access-map{background:#1a1612;min-height:400px;display:flex;align-items:center;justify-content:center;color:rgba(248,244,238,.2);font-size:12px;letter-spacing:.1em}
+.access-info{background:var(--warm);padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.access-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;margin-bottom:40px;color:var(--ink)}
+.access-row{display:flex;gap:24px;margin-bottom:24px;align-items:flex-start}
+.access-label{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;min-width:64px;padding-top:3px}
+.access-val{font-size:13px;color:var(--stone);line-height:1.9}
+
+/* FOOTER */
+footer{background:var(--ink);padding:48px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:.2em;color:rgba(248,244,238,.6)}
+.footer-copy{font-size:11px;color:rgba(248,244,238,.3);letter-spacing:.05em}
+.footer-sns{display:flex;gap:24px}
+.footer-sns a{font-size:11px;letter-spacing:.15em;color:rgba(248,244,238,.4);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.footer-sns a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links,.nav-reserve{display:none}
+  .hero{padding:0 24px 60px}
+  .concept{grid-template-columns:1fr}
+  .concept-image{min-height:280px}
+  .concept-body{padding:48px 24px}
+  .menu{padding:80px 24px}
+  .menu-header{flex-direction:column;align-items:flex-start;gap:16px}
+  .menu-note{text-align:left}
+  .menu-grid{grid-template-columns:1fr}
+  .reservation{padding:80px 24px}
+  .access{grid-template-columns:1fr}
+  .access-info{padding:48px 24px}
+  footer{flex-direction:column;gap:24px;padding:40px 24px;text-align:center}
+  .form-row{grid-template-columns:1fr}
+  .hero-scroll{display:none}
+}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="logo">TRATTORIA NOCI</a>
+  <ul class="nav-links">
+    <li><a href="#concept">コンセプト</a></li>
+    <li><a href="#menu">メニュー</a></li>
+    <li><a href="#access">アクセス</a></li>
+  </ul>
+  <a href="#reservation" class="nav-reserve">ご予約</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Daikanyama, Tokyo — Since 2019</span>
+    <h1 class="hero-title">素材と<br><em>火</em>の<br>対話。</h1>
+    <p class="hero-sub">北イタリア・ピエモンテの食文化を、東京の四季とともに</p>
+    <a href="#menu" class="hero-cta">メニューを見る</a>
+  </div>
+  <span class="hero-scroll">Scroll</span>
+</section>
+
+<section class="concept" id="concept">
+  <div class="concept-image">
+    <div class="concept-img-placeholder">
+      <div class="concept-img-inner">
+        <p>薪窯</p>
+      </div>
+    </div>
+  </div>
+  <div class="concept-body">
+    <span class="section-label reveal">Our Philosophy</span>
+    <div class="divider reveal"></div>
+    <h2 class="concept-title reveal">余白に<br>宿る、<br>味わい。</h2>
+    <p class="concept-text reveal">素材は毎朝、生産者から直接届きます。薪窯の温度は、シェフの手のひらが覚えています。盛り付けに余白を作るのは、食べる人が想像を楽しめるように。Trattoria Nociは、効率よりも必然を選ぶ場所です。</p>
+    <a href="#reservation" class="hero-cta reveal" style="color:var(--ink)">予約する</a>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="menu-header reveal">
+    <h2 class="menu-title">本日の<br>おすすめ</h2>
+    <p class="menu-note">食材の仕入れにより内容が変わります。詳しくはお電話でご確認ください。</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item reveal">
+      <span class="menu-cat">Antipasto</span>
+      <p class="menu-name">北海道産 帆立貝のカルパッチョ</p>
+      <p class="menu-desc">フェンネルと柚子のヴィネグレット、フレッシュトリュフを添えて</p>
+      <span class="menu-price">¥2,800</span>
+    </div>
+    <div class="menu-item reveal">
+      <span class="menu-cat">Primo</span>
+      <p class="menu-name">タリオリーニ 白トリュフオイル</p>
+      <p class="menu-desc">卵黄を練り込んだ手打ちパスタ。バター、パルミジャーノ、季節の茸</p>
+      <span class="menu-price">¥3,600</span>
+    </div>
+    <div class="menu-item reveal">
+      <span class="menu-cat">Secondo</span>
+      <p class="menu-name">薪窯焼き 仔羊のコスタータ</p>
+      <p class="menu-desc">ローズマリーと岩塩のみのシンプルな調理。ルッコラのサラダを添えて</p>
+      <span class="menu-price">¥5,800</span>
+    </div>
+    <div class="menu-item reveal">
+      <span class="menu-cat">Dolce</span>
+      <p class="menu-name">ティラミス クラシコ</p>
+      <p class="menu-desc">サヴォイアルディにエスプレッソを染み込ませ、マスカルポーネクリームで</p>
+      <span class="menu-price">¥1,400</span>
+    </div>
+    <div class="menu-item reveal">
+      <span class="menu-cat">Vino</span>
+      <p class="menu-name">バローロ / ラ・モッラ 2018</p>
+      <p class="menu-desc">ピエモンテ州の王様。タンニンと果実が均衡する熟成の一本</p>
+      <span class="menu-price">¥1,800 / glass</span>
+    </div>
+    <div class="menu-item reveal">
+      <span class="menu-cat">Course</span>
+      <p class="menu-name">シェフのおまかせコース</p>
+      <p class="menu-desc">アンティパスト〜ドルチェまで全7品。季節の素材を最大限に</p>
+      <span class="menu-price">¥14,000</span>
+    </div>
+  </div>
+</section>
+
+<section class="reservation" id="reservation">
+  <span class="section-label reveal">Reservation</span>
+  <h2 class="reservation-title reveal">ご予約</h2>
+  <p class="reservation-sub reveal">特別な夜のために、席をご用意します。<br>お電話（03-XXXX-XXXX）でも承っております。</p>
+  <form class="reservation-form reveal" onsubmit="return false">
+    <div class="form-row">
+      <input class="form-input" type="text" placeholder="お名前">
+      <input class="form-input" type="tel" placeholder="電話番号">
+    </div>
+    <div class="form-row">
+      <input class="form-input" type="date">
+      <input class="form-input" type="text" placeholder="人数（例：2名）">
+    </div>
+    <input class="form-input" type="text" placeholder="ご要望・アレルギー等（任意）">
+    <button class="form-submit">予約リクエストを送る</button>
+  </form>
+</section>
+
+<section class="access" id="access">
+  <div class="access-map">[ Google Map ]</div>
+  <div class="access-info">
+    <h3 class="access-name reveal">Trattoria Noci<br>代官山本店</h3>
+    <div class="access-row reveal">
+      <span class="access-label">住所</span>
+      <span class="access-val">東京都渋谷区猿楽町XX-X<br>ノチビル 1F</span>
+    </div>
+    <div class="access-row reveal">
+      <span class="access-label">営業時間</span>
+      <span class="access-val">ランチ 12:00–14:00（土日祝のみ）<br>ディナー 18:00–22:30<br>定休日：月曜</span>
+    </div>
+    <div class="access-row reveal">
+      <span class="access-label">アクセス</span>
+      <span class="access-val">東急東横線 代官山駅より徒歩5分</span>
+    </div>
+    <div class="access-row reveal">
+      <span class="access-label">TEL</span>
+      <span class="access-val">03-XXXX-XXXX</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">TRATTORIA NOCI</span>
+  <div class="footer-sns">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+  <span class="footer-copy">© 2024 Trattoria Noci. All rights reserved.</span>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
